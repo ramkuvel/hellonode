@@ -1,13 +1,11 @@
 # use a node base image
-FROM node:7-onbuild
+FROM rkulandaivel/mule-esb-3.8.0
 
 # set maintainer
-LABEL maintainer "ramkuvel@gmail.com"
+maintainer "ramkuvel@gmail.com"
 
 # set a health check
-HEALTHCHECK --interval=5s \
-            --timeout=5s \
-            CMD curl -f http://127.0.0.1:8000 || exit 1
+CMD [ "/opt/mule/bin/mule" ]
 
 # tell docker what port to expose
-EXPOSE 8000
+EXPOSE 8081
